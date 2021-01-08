@@ -6,3 +6,5 @@ geckodriver.log
 htestml
 time-entries.txt
 time-mapping.json
+.vscode
+env/
