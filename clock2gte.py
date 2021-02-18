@@ -55,6 +55,7 @@ create_temp_file = config['clockify'].get('create_temp_file', 0)
 gte_debug = config['gte']['settings'].get('debug', 0)
 check_timesheet_date = config['gte']['settings'].get('check_timesheet_date', True)
 use_browser = config.get('use_browser', 1)
+webdriver_path = config.get('webdriver_path', 1)
 wk_type = config['gte']['global']['type']
 wk_site = config['gte']['global']['site']
 wk_loc = config['gte']['global']['location']
@@ -493,9 +494,9 @@ debug_timesheet_entries = get_timesheet(start=start_of_week, end=end_of_week)
 reconfigured_timesheets = transform_data(debug_timesheet_entries)
 
 if use_browser == 'Chrome':
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(webdriver_path)
 elif use_browser == 'Firefox':
-    driver = webdriver.Firefox()
+    driver = webdriver.Firefox(webdriver_path)
 
 driver.set_window_size(1600, 900)
 
